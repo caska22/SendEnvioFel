@@ -1,0 +1,19 @@
+services:
+  worker:
+    build: .
+    environment:
+      PYTHONPATH: /app/src
+    restart: "no"
+    develop:
+      watch:
+        - action: sync
+          path: src/
+          target: /app/src
+          ignore:
+            - __pycache__/
+            - .git/
+            - .venv/
+            - "*.pyc"
+
+ #       - action: sync
+  #        path: worker.py
