@@ -1,7 +1,5 @@
 import time
 import logging
-import sys
-
 
 from c_factorial import Factorial
 
@@ -13,15 +11,14 @@ logging.basicConfig(
 def main():
     logging.info("Servicio Python iniciado")
     logging.critical("muu")
-    while True:
-        logging.info("Procesandol")
-        factorial = Factorial()
-        factorial.hello()
-        time.sleep(1000)
 
-
-
-
+    logging.info("Procesandol")
+    if Factorial().proceso_cumpleaños():
+        time.sleep(86400) # 24 horas hasta la proxima ejecucion si no da error
+        main()
+    else:
+        time.sleep(900) # 15 minutos hasta la proxima ejecucion, si da error
+        main()
 
 if __name__ == "__main__":
     main()
